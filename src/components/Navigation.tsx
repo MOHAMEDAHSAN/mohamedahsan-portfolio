@@ -16,7 +16,7 @@ interface NavigationProps {
 const Navigation = ({ onNavigate }: NavigationProps) => {
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 z-50 bg-secondary/80 backdrop-blur-sm border-b border-primary/10 px-6 py-3"
+      className="fixed top-0 left-0 right-0 z-50 bg-secondary/80 backdrop-blur-sm border-b border-primary/10 px-6 py-3 font-poppins"
       style={{
         backgroundImage: `
           linear-gradient(
@@ -72,4 +72,3 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
 };
 
 export default Navigation;
-
