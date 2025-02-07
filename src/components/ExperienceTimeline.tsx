@@ -16,7 +16,7 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
   return (
     <section id="experience" className="relative py-20">
       {/* Timeline line */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 transform -translate-x-1/2" />
+      <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform -translate-x-1/2" />
 
       {/* Experiences */}
       <div className="relative space-y-24">
@@ -36,17 +36,17 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
                 exp.side === "right" ? "md:col-start-2" : "md:col-start-1"
               }`}
             >
-              <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-lg">
+              <div className="bg-secondary/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-primary/5 hover:border-primary/10 transition-colors">
                 <h3 className="text-xl font-bold text-accent">{exp.title}</h3>
-                <p className="text-[#0FA0CE] font-medium">{exp.company}</p>
-                <p className="text-sm text-[#8E9196]">{exp.location}</p>
-                <p className="text-[#222222] mt-2">{exp.description}</p>
+                <p className="text-highlight font-medium">{exp.company}</p>
+                <p className="text-sm text-accent/60">{exp.location}</p>
+                <p className="text-accent/80 mt-2">{exp.description}</p>
               </div>
             </div>
 
             {/* Date */}
             <div
-              className={`text-lg font-medium text-[#33C3F0] ${
+              className={`text-lg font-medium text-primary ${
                 exp.side === "right"
                   ? "md:col-start-1 md:text-right"
                   : "md:col-start-2 md:text-left"
