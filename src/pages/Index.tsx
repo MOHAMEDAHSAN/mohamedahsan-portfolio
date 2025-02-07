@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Navigation from "@/components/Navigation";
@@ -6,6 +5,7 @@ import SocialLinks from "@/components/SocialLinks";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ContactDialog from "@/components/ContactDialog";
 import Skills from "@/components/Skills";
+import ImageSlider from "@/components/ImageSlider";
 
 const experiences = [
   {
@@ -74,24 +74,17 @@ const Index = () => {
               </div>
 
               {/* Image */}
-              <div className="order-1 md:order-2 animate-fade-in">
-                <div
-                  className="aspect-square rounded-3xl overflow-hidden bg-white/80 backdrop-blur-sm p-2"
-                  style={{
-                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-                    alt="Profile"
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
+              <div className="order-1 md:order-2 animate-fade-in h-[500px]">
+                <div className="w-full h-full relative">
+                  <ImageSlider />
                 </div>
               </div>
             </div>
           </section>
 
-          <ExperienceTimeline experiences={experiences} />
+          <div className="py-20">
+            <ExperienceTimeline experiences={experiences} />
+          </div>
           
           <Skills />
         </div>
