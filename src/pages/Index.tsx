@@ -43,10 +43,10 @@ const Index = () => {
       <AnimatedBackground />
       <Navigation onNavigate={scrollToSection} />
 
-      <div className="min-h-screen p-6 md:p-12 pt-24 font-poppins">
+      <div className="min-h-screen p-6 md:p-12 pt-36 font-poppins">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
-          <section id="home" className="mb-32">
+          <section id="home" className="mb-32 mt-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Text Content */}
               <div className="order-2 md:order-1 space-y-6 animate-fade-up">

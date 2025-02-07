@@ -1,4 +1,3 @@
-
 interface Experience {
   title: string;
   company: string;
@@ -15,7 +14,6 @@ interface ExperienceTimelineProps {
 const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
   return (
     <section id="experience" className="relative py-20">
-      {/* Increased bottom margin from mb-24 to mb-32 to move title up and away from timeline */}
       <h2 className="text-4xl font-amaranth font-bold text-center mb-32 relative">
         <span className="relative inline-block">
           Experiences
@@ -23,10 +21,8 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
         </span>
       </h2>
       
-      {/* Timeline line - adjusted top spacing */}
       <div className="absolute left-1/2 top-32 bottom-0 w-1 bg-primary/20 transform -translate-x-1/2" />
 
-      {/* Experiences */}
       <div className="relative space-y-24">
         {experiences.map((exp, index) => (
           <div
@@ -35,10 +31,8 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
               exp.side === "right" ? "md:text-left" : "md:text-right"
             }`}
           >
-            {/* Timeline dot */}
             <div className="absolute left-1/2 top-0 w-5 h-5 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2" />
 
-            {/* Content */}
             <div
               className={`space-y-2 ${
                 exp.side === "right" ? "md:col-start-2" : "md:col-start-1"
@@ -52,12 +46,11 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
               </div>
             </div>
 
-            {/* Date - Added flex alignment and improved positioning */}
             <div
-              className={`text-lg font-medium text-primary flex items-center ${
+              className={`text-lg font-medium text-primary flex ${
                 exp.side === "right"
-                  ? "md:col-start-1 md:text-right md:justify-end"
-                  : "md:col-start-2 md:text-left md:justify-start"
+                  ? "md:col-start-1 md:justify-end md:items-start pt-6"
+                  : "md:col-start-2 md:justify-start md:items-start pt-6"
               }`}
             >
               {exp.duration}

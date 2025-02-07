@@ -71,6 +71,9 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
           size={24}
           className="transition-colors duration-300 group-hover:text-white text-blue-500"
         />
+        <span className="absolute -bottom-12 left-1/2 -translate-x-1/2 bg-[#1A1F2C] text-white px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-sm font-amaranth border border-primary/10">
+          Say hello! 👋
+        </span>
       </button>
     </div>
   );
