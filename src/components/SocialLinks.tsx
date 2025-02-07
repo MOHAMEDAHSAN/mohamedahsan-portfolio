@@ -7,28 +7,28 @@ export const socialLinks = [
     href: "https://github.com/MOHAMEDAHSAN",
     label: "GitHub",
     color: "#333",
-    tooltip: "Check out my projects!",
+    tooltip: "Check out my projects! 🚀",
   },
   {
     icon: Linkedin,
     href: "https://www.linkedin.com/in/mohamedahsan037/",
     label: "LinkedIn",
     color: "#0077B5",
-    tooltip: "Let's get connected!",
+    tooltip: "Let's connect! 🤝",
   },
   {
     icon: Instagram,
     href: "https://www.instagram.com/not_mysticahsan?igsh=NWUwMTlrZmwyczZ1",
     label: "Instagram",
     color: "#E4405F",
-    tooltip: "Follow my journey!",
+    tooltip: "Follow my journey! 📸",
   },
   {
     icon: FileText,
     href: "#",
     label: "Resume",
     color: "#16A34A",
-    tooltip: "View my resume",
+    tooltip: "View my resume 📄",
   },
 ];
 
@@ -58,7 +58,7 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
       ))}
       <button
         onClick={onContactClick}
-        title="Contact me"
+        title="Say hello! 👋"
         className="group relative p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up hover:bg-primary"
         style={{
           boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05)",
@@ -74,4 +74,3 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
 };
 
 export default SocialLinks;
-
