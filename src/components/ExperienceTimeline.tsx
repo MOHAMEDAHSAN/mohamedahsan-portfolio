@@ -28,9 +28,7 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
-              exp.side === "right" ? "md:text-left" : "md:text-right"
-            }`}
+            className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center`}
           >
             <div className="absolute left-1/2 top-1/2 w-5 h-5 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 z-10" />
 
@@ -44,17 +42,8 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
                 <p className="text-primary font-semibold">{exp.company}</p>
                 <p className="text-sm text-accent/60">{exp.location}</p>
                 <p className="text-accent/80 mt-2">{exp.description}</p>
+                <p className="text-sm text-primary/80 mt-2">{exp.duration}</p>
               </div>
-            </div>
-
-            <div
-              className={`text-lg font-medium text-primary ${
-                exp.side === "right"
-                  ? "md:col-start-1 md:text-right"
-                  : "md:col-start-2 md:text-left"
-              } flex items-center h-full`}
-            >
-              {exp.duration}
             </div>
           </div>
         ))}
