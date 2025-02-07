@@ -60,7 +60,12 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-accent mb-12 text-center">Skills</h2>
+        <h2 className="text-4xl font-amaranth font-bold text-center mb-16 relative">
+          <span className="relative inline-block">
+            Skills
+            <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary via-highlight to-primary/50"></div>
+          </span>
+        </h2>
         <div className="grid md:grid-cols-2 gap-12">
           {/* Non-Technical Skills */}
           <div>

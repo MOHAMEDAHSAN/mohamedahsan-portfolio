@@ -15,7 +15,14 @@ interface ExperienceTimelineProps {
 const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
   return (
     <section id="experience" className="relative py-20">
-      {/* Timeline line - increased thickness from w-0.5 to w-1 */}
+      <h2 className="text-4xl font-amaranth font-bold text-center mb-16 relative">
+        <span className="relative inline-block">
+          Experiences
+          <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary via-highlight to-primary/50"></div>
+        </span>
+      </h2>
+      
+      {/* Timeline line */}
       <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-primary/20 transform -translate-x-1/2" />
 
       {/* Experiences */}
