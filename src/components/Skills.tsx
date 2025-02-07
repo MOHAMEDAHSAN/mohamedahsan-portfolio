@@ -1,22 +1,19 @@
 
 import {
-  Code,
-  Languages,
-  Clock,
-  Users,
-  Lightbulb,
-  Crown,
-  Briefcase,
   Brain,
   MessageSquare,
-  Figma,
   FileCode,
-  Atom,
-  PenTool,
   Database,
+  PenTool,
   Box,
   Cpu,
   Printer,
+  Lightbulb,
+  Clock,
+  Users,
+  Crown,
+  Briefcase,
+  Languages,
 } from "lucide-react";
 
 const nonTechnicalSkills = [
@@ -31,14 +28,14 @@ const nonTechnicalSkills = [
 const technicalSkills = [
   { name: "Machine Learning", icon: Brain },
   { name: "NLP", icon: MessageSquare },
-  { name: "Figma", icon: Figma },
-  { name: "PHP", icon: FileCode },
-  { name: "Atom", icon: Atom },
-  { name: "Visual Studio Code", icon: Code },
-  { name: "Python", icon: FileCode },
+  { name: "Figma", icon: "https://www.vectorlogo.zone/logos/figma/figma-icon.svg" },
+  { name: "PHP", icon: "https://www.vectorlogo.zone/logos/php/php-icon.svg" },
+  { name: "Atom", icon: "https://www.vectorlogo.zone/logos/atom_io/atom_io-icon.svg" },
+  { name: "Visual Studio Code", icon: "https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" },
+  { name: "Python", icon: "https://www.vectorlogo.zone/logos/python/python-icon.svg" },
   { name: "C", icon: FileCode },
-  { name: "Neo4j", icon: Database },
-  { name: "DBMS-MySQL", icon: Database },
+  { name: "Neo4j", icon: "https://www.vectorlogo.zone/logos/neo4j/neo4j-icon.svg" },
+  { name: "DBMS-MySQL", icon: "https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" },
   { name: "StarUML", icon: PenTool },
   { name: "Quartus", icon: Cpu },
   { name: "Autodesk Fusion 360", icon: Box },
@@ -47,7 +44,11 @@ const technicalSkills = [
 
 const SkillCard = ({ name, icon: Icon, details }: { name: string; icon: any; details?: string }) => (
   <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:bg-primary hover:text-white group">
-    <Icon className="w-5 h-5 group-hover:text-white text-primary" />
+    {typeof Icon === 'string' ? (
+      <img src={Icon} alt={name} className="w-5 h-5" />
+    ) : (
+      <Icon className="w-5 h-5 group-hover:text-white text-primary" />
+    )}
     <div className="text-left">
       <p className="font-medium">{name}</p>
       {details && <p className="text-sm opacity-75">{details}</p>}
@@ -87,3 +88,4 @@ const Skills = () => {
 };
 
 export default Skills;
+
