@@ -51,9 +51,12 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
         >
           <link.icon
             size={24}
-            className="transition-transform duration-300 group-hover:scale-110 group-hover:text-white"
+            className="transition-colors duration-300 group-hover:text-white"
             style={{ color: link.color }}
           />
+          <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-primary text-white px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-sm">
+            {link.tooltip}
+          </span>
         </a>
       ))}
       <button
@@ -66,7 +69,7 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
       >
         <Phone
           size={24}
-          className="transition-transform duration-300 group-hover:scale-110 text-blue-500 group-hover:text-white"
+          className="transition-colors duration-300 group-hover:text-white text-blue-500"
         />
       </button>
     </div>

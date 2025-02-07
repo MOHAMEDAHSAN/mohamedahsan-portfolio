@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Navigation from "@/components/Navigation";
 import SocialLinks from "@/components/SocialLinks";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ContactDialog from "@/components/ContactDialog";
+import Skills from "@/components/Skills";
 
 const experiences = [
   {
@@ -91,6 +91,8 @@ const Index = () => {
           </section>
 
           <ExperienceTimeline experiences={experiences} />
+          
+          <Skills />
         </div>
       </div>
 
