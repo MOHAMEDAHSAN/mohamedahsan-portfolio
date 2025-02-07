@@ -1,3 +1,4 @@
+
 interface Experience {
   title: string;
   company: string;
@@ -31,7 +32,7 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
               exp.side === "right" ? "md:text-left" : "md:text-right"
             }`}
           >
-            <div className="absolute left-1/2 top-0 w-5 h-5 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute left-1/2 top-1/2 w-5 h-5 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2" />
 
             <div
               className={`space-y-2 ${
@@ -47,11 +48,11 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
             </div>
 
             <div
-              className={`text-lg font-medium text-primary flex ${
+              className={`text-lg font-medium text-primary ${
                 exp.side === "right"
-                  ? "md:col-start-1 md:justify-end md:items-start pt-6"
-                  : "md:col-start-2 md:justify-start md:items-start pt-6"
-              }`}
+                  ? "md:col-start-1 md:justify-end"
+                  : "md:col-start-2 md:justify-start"
+              } flex items-center`}
             >
               {exp.duration}
             </div>
