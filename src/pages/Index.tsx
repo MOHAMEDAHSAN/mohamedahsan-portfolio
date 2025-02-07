@@ -14,7 +14,7 @@ const experiences = [
     location: "Chennai, Tamil Nadu, India",
     description:
       "Designed prototypes, enhanced UX with modern elements, and conducted usability testing for improved user satisfaction.",
-    side: "right",
+    side: "right" as const,
   },
   {
     title: "Web Development In-plant Training",
@@ -23,7 +23,7 @@ const experiences = [
     location: "Chennai, Tamil Nadu, India",
     description:
       "Built a functional website using PHP, WordPress, HTML, CSS, and JavaScript, hosted on a free domain.",
-    side: "left",
+    side: "left" as const,
   },
 ];
 
