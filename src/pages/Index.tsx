@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Navigation from "@/components/Navigation";
@@ -6,6 +7,7 @@ import ExperienceTimeline from "@/components/ExperienceTimeline";
 import ContactDialog from "@/components/ContactDialog";
 import Skills from "@/components/Skills";
 import ImageSlider from "@/components/ImageSlider";
+import Certifications from "@/components/Certifications";
 
 const experiences = [
   {
@@ -86,6 +88,8 @@ const Index = () => {
             <ExperienceTimeline experiences={experiences} />
           </div>
           
+          <Certifications />
+          
           <Skills />
         </div>
       </div>
@@ -96,3 +100,4 @@ const Index = () => {
 };
 
 export default Index;
+
