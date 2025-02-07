@@ -121,7 +121,7 @@ const Index = () => {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
                   Hey There!
                   <br />
-                  <span className="text-primary">I am Mohamed Ahsan!</span>
+                  <span className="text-primary">I am<br />Mohamed Ahsan!</span>
                 </h1>
                 <p className="text-lg text-accent/80 leading-relaxed">
                   Tech enthusiast skilled in AI, ML, and UI/UX, transforming ideas
@@ -207,15 +207,17 @@ const Index = () => {
                         : "md:col-start-1"
                     }`}
                   >
-                    <h3 className="text-xl font-bold text-accent">{exp.title}</h3>
-                    <p className="text-primary font-medium">{exp.company}</p>
-                    <p className="text-sm text-accent/60">{exp.location}</p>
-                    <p className="text-accent/80">{exp.description}</p>
+                    <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-lg">
+                      <h3 className="text-xl font-bold text-accent">{exp.title}</h3>
+                      <p className="text-[#0FA0CE] font-medium">{exp.company}</p>
+                      <p className="text-sm text-[#8E9196]">{exp.location}</p>
+                      <p className="text-[#222222] mt-2">{exp.description}</p>
+                    </div>
                   </div>
 
                   {/* Date */}
                   <div
-                    className={`text-lg font-medium text-primary ${
+                    className={`text-lg font-medium text-[#33C3F0] ${
                       exp.side === "right"
                         ? "md:col-start-1 md:text-right"
                         : "md:col-start-2 md:text-left"
