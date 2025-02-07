@@ -1,3 +1,4 @@
+
 interface Experience {
   title: string;
   company: string;
@@ -14,26 +15,27 @@ interface ExperienceTimelineProps {
 const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
   return (
     <section id="experience" className="relative py-20">
-      <h2 className="text-4xl font-amaranth font-bold text-center mb-24 relative">
+      {/* Increased bottom margin from mb-24 to mb-32 to move title up and away from timeline */}
+      <h2 className="text-4xl font-amaranth font-bold text-center mb-32 relative">
         <span className="relative inline-block">
           Experiences
           <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary via-highlight to-primary/50"></div>
         </span>
       </h2>
       
-      {/* Timeline line */}
-      <div className="absolute left-1/2 top-24 bottom-0 w-1 bg-primary/20 transform -translate-x-1/2" />
+      {/* Timeline line - adjusted top spacing */}
+      <div className="absolute left-1/2 top-32 bottom-0 w-1 bg-primary/20 transform -translate-x-1/2" />
 
       {/* Experiences */}
       <div className="relative space-y-24">
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
+            className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 ${
               exp.side === "right" ? "md:text-left" : "md:text-right"
             }`}
           >
-            {/* Timeline dot - increased size from w-4/h-4 to w-5/h-5 */}
+            {/* Timeline dot */}
             <div className="absolute left-1/2 top-0 w-5 h-5 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2" />
 
             {/* Content */}
@@ -44,19 +46,18 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
             >
               <div className="bg-secondary/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-primary/5 hover:border-primary/10 transition-colors">
                 <h3 className="text-xl font-bold text-accent">{exp.title}</h3>
-                {/* Updated company name color to primary (red) */}
                 <p className="text-primary font-semibold">{exp.company}</p>
                 <p className="text-sm text-accent/60">{exp.location}</p>
                 <p className="text-accent/80 mt-2">{exp.description}</p>
               </div>
             </div>
 
-            {/* Date */}
+            {/* Date - Added flex alignment and improved positioning */}
             <div
-              className={`text-lg font-medium text-primary ${
+              className={`text-lg font-medium text-primary flex items-center ${
                 exp.side === "right"
-                  ? "md:col-start-1 md:text-right"
-                  : "md:col-start-2 md:text-left"
+                  ? "md:col-start-1 md:text-right md:justify-end"
+                  : "md:col-start-2 md:text-left md:justify-start"
               }`}
             >
               {exp.duration}
