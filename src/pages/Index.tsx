@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Navigation from "@/components/Navigation";
@@ -42,7 +43,7 @@ const Index = () => {
       <AnimatedBackground />
       <Navigation onNavigate={scrollToSection} />
 
-      <div className="min-h-screen p-6 md:p-12 pt-24">
+      <div className="min-h-screen p-6 md:p-12 pt-24 font-poppins">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <section id="home" className="mb-32">
@@ -54,7 +55,7 @@ const Index = () => {
                     Welcome to my portfolio
                   </span>
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
+                <h1 className="font-amaranth text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
                   Hey There!
                   <br />
                   <span className="text-primary">

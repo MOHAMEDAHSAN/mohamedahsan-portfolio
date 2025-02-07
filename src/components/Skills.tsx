@@ -1,4 +1,3 @@
-
 import {
   Brain,
   MessageSquare,
@@ -69,7 +68,7 @@ const Skills = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Non-Technical Skills */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-primary">Non-Technical Skills</h3>
+            <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">Non-Technical Skills</h3>
             <div className="grid gap-4">
               {nonTechnicalSkills.map((skill) => (
                 <SkillCard key={skill.name} {...skill} />
@@ -79,7 +78,7 @@ const Skills = () => {
           
           {/* Technical Skills */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-primary">Technical Skills</h3>
+            <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">Technical Skills</h3>
             <div className="grid gap-4">
               {technicalSkills.map((skill) => (
                 <SkillCard key={skill.name} {...skill} />
@@ -93,4 +92,3 @@ const Skills = () => {
 };
 
 export default Skills;
-

@@ -21,6 +21,7 @@ export default {
     extend: {
       fontFamily: {
         amaranth: ['Amaranth', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -84,4 +85,3 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
