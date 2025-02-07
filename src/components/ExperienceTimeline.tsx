@@ -15,8 +15,8 @@ interface ExperienceTimelineProps {
 const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
   return (
     <section id="experience" className="relative py-20">
-      {/* Timeline line */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform -translate-x-1/2" />
+      {/* Timeline line - increased thickness from w-0.5 to w-1 */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-primary/20 transform -translate-x-1/2" />
 
       {/* Experiences */}
       <div className="relative space-y-24">
@@ -27,8 +27,8 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
               exp.side === "right" ? "md:text-left" : "md:text-right"
             }`}
           >
-            {/* Timeline dot */}
-            <div className="absolute left-1/2 top-0 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2" />
+            {/* Timeline dot - increased size from w-4/h-4 to w-5/h-5 */}
+            <div className="absolute left-1/2 top-0 w-5 h-5 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2" />
 
             {/* Content */}
             <div
@@ -38,7 +38,8 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
             >
               <div className="bg-secondary/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-primary/5 hover:border-primary/10 transition-colors">
                 <h3 className="text-xl font-bold text-accent">{exp.title}</h3>
-                <p className="text-highlight font-medium">{exp.company}</p>
+                {/* Updated company name color to primary (red) */}
+                <p className="text-primary font-semibold">{exp.company}</p>
                 <p className="text-sm text-accent/60">{exp.location}</p>
                 <p className="text-accent/80 mt-2">{exp.description}</p>
               </div>
@@ -62,3 +63,4 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
 };
 
 export default ExperienceTimeline;
+

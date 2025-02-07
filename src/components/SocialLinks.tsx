@@ -44,14 +44,14 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
           key={link.label}
           href={link.href}
           title={link.tooltip}
-          className="group relative p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up"
+          className="group relative p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up hover:bg-primary"
           style={{
             boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05)",
           }}
         >
           <link.icon
             size={24}
-            className="transition-transform duration-300 group-hover:scale-110"
+            className="transition-transform duration-300 group-hover:scale-110 group-hover:text-white"
             style={{ color: link.color }}
           />
         </a>
@@ -59,14 +59,14 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
       <button
         onClick={onContactClick}
         title="Contact me"
-        className="group relative p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up"
+        className="group relative p-3 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up hover:bg-primary"
         style={{
           boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05)",
         }}
       >
         <Phone
           size={24}
-          className="transition-transform duration-300 group-hover:scale-110 text-blue-500"
+          className="transition-transform duration-300 group-hover:scale-110 text-blue-500 group-hover:text-white"
         />
       </button>
     </div>
@@ -74,3 +74,4 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
 };
 
 export default SocialLinks;
+
