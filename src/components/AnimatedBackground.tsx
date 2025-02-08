@@ -27,20 +27,19 @@ const AnimatedBackground = () => {
     
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
-    // Create more vibrant lines with gradient effect
-    const gradientColors = [
-      new THREE.Color('#8B5CF6'), // Vivid Purple
-      new THREE.Color('#D946EF'), // Magenta Pink
-      new THREE.Color('#F97316'), // Bright Orange
-      new THREE.Color('#0EA5E9'), // Ocean Blue
+    // Create lines with more subtle colors
+    const colors = [
+      new THREE.Color('#4B4B4B'), // Grey
+      new THREE.Color('#D72638'), // Primary
+      new THREE.Color('#2563EB'), // Highlight
     ];
 
     const lines = [];
-    for(let i = 0; i < 4; i++) {
+    for(let i = 0; i < 3; i++) {
       const material = new THREE.LineBasicMaterial({ 
-        color: gradientColors[i],
+        color: colors[i],
         transparent: true,
-        opacity: 0.8
+        opacity: 0.3
       });
 
       const points = [];
@@ -66,8 +65,8 @@ const AnimatedBackground = () => {
     const animate = () => {
       requestAnimationFrame(animate);
       lines.forEach((line, index) => {
-        line.rotation.x += 0.001 * (index + 1);
-        line.rotation.y += 0.001 * (index + 1);
+        line.rotation.x += 0.0005 * (index + 1);
+        line.rotation.y += 0.0005 * (index + 1);
       });
       renderer.render(scene, camera);
     };
