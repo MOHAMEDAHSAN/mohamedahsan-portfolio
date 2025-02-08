@@ -60,6 +60,17 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
                 navigationMenuTriggerStyle(),
                 "text-accent hover:text-primary hover:bg-primary/10 transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-1 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
               )}
+              onClick={() => onNavigate("hackathons")}
+            >
+              Hackathons & Projects
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "text-accent hover:text-primary hover:bg-primary/10 transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-1 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
+              )}
               onClick={() => onNavigate("certifications")}
             >
               Certifications

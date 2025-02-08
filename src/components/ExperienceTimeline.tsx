@@ -6,6 +6,7 @@ interface Experience {
   location: string;
   description: string;
   side: "left" | "right";
+  logo?: string;
 }
 
 interface ExperienceTimelineProps {
@@ -38,8 +39,19 @@ const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
               }`}
             >
               <div className="bg-secondary/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-primary/5 hover:border-primary/10 transition-colors">
-                <h3 className="text-xl font-bold text-accent">{exp.title}</h3>
-                <p className="text-primary font-semibold">{exp.company}</p>
+                <div className="flex items-center gap-4 mb-4">
+                  {exp.logo && (
+                    <img 
+                      src={exp.logo} 
+                      alt={`${exp.company} logo`}
+                      className="w-12 h-12 object-contain rounded-lg"
+                    />
+                  )}
+                  <div>
+                    <h3 className="text-xl font-bold text-accent">{exp.title}</h3>
+                    <p className="text-primary font-semibold">{exp.company}</p>
+                  </div>
+                </div>
                 <p className="text-sm text-accent/60">{exp.location}</p>
                 <p className="text-accent/80 mt-2">{exp.description}</p>
                 <p className="text-sm text-primary/80 mt-2">{exp.duration}</p>

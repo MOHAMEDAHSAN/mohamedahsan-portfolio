@@ -8,8 +8,19 @@ import ContactDialog from "@/components/ContactDialog";
 import Skills from "@/components/Skills";
 import ImageSlider from "@/components/ImageSlider";
 import Certifications from "@/components/Certifications";
+import HackathonsAndProjects from "@/components/HackathonsAndProjects";
 
 const experiences = [
+  {
+    title: "Mentee",
+    company: "Codebyte",
+    duration: "Jan 2025 - Present",
+    location: "Chennai, Tamil Nadu, India",
+    description:
+      "Currently participating in the mentorship program at Codebyte, focusing on advanced software development practices and industry standards.",
+    side: "right" as const,
+    logo: "/lovable-uploads/34f00a62-29e9-4bc2-bd64-0a51ddc71461.png"
+  },
   {
     title: "UI/UX Intern",
     company: "Skill First Labs",
@@ -17,7 +28,8 @@ const experiences = [
     location: "Chennai, Tamil Nadu, India",
     description:
       "Designed prototypes, enhanced UX with modern elements, and conducted usability testing for improved user satisfaction.",
-    side: "right" as const,
+    side: "left" as const,
+    logo: "/lovable-uploads/89da934b-65b7-4cd3-8319-5321c8167d55.png"
   },
   {
     title: "Web Development In-plant Training",
@@ -26,7 +38,8 @@ const experiences = [
     location: "Chennai, Tamil Nadu, India",
     description:
       "Built a functional website using PHP, WordPress, HTML, CSS, and JavaScript, hosted on a free domain.",
-    side: "left" as const,
+    side: "right" as const,
+    logo: "/lovable-uploads/c5f01d9f-0ddd-4fcf-8810-9f7983d3f58b.png"
   },
 ];
 
@@ -34,9 +47,21 @@ const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
+    if (sectionId === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const headerOffset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
@@ -88,6 +113,10 @@ const Index = () => {
             <ExperienceTimeline experiences={experiences} />
           </div>
           
+          <div className="py-20">
+            <HackathonsAndProjects />
+          </div>
+          
           <Certifications />
           
           <Skills />
@@ -100,4 +129,3 @@ const Index = () => {
 };
 
 export default Index;
-
