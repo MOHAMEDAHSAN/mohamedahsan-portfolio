@@ -19,7 +19,7 @@ const experiences = [
     description:
       "Currently participating in the mentorship program at Codebyte, focusing on advanced software development practices and industry standards.",
     side: "right" as const,
-    logo: "/lovable-uploads/34f00a62-29e9-4bc2-bd64-0a51ddc71461.png"
+    logo: "/lovable-uploads/97dee31b-02d8-4eb0-936b-33ba8e339b56.png"
   },
   {
     title: "UI/UX Intern",
@@ -29,7 +29,7 @@ const experiences = [
     description:
       "Designed prototypes, enhanced UX with modern elements, and conducted usability testing for improved user satisfaction.",
     side: "left" as const,
-    logo: "/lovable-uploads/89da934b-65b7-4cd3-8319-5321c8167d55.png"
+    logo: "/lovable-uploads/061a06a2-f177-45c1-8f1d-446310dfeeb0.png"
   },
   {
     title: "Web Development In-plant Training",
@@ -39,7 +39,7 @@ const experiences = [
     description:
       "Built a functional website using PHP, WordPress, HTML, CSS, and JavaScript, hosted on a free domain.",
     side: "right" as const,
-    logo: "/lovable-uploads/c5f01d9f-0ddd-4fcf-8810-9f7983d3f58b.png"
+    logo: "/lovable-uploads/8623bb43-451c-4f5e-9bbb-40156f5277d7.png"
   },
 ];
 
