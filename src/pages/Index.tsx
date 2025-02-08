@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Navigation from "@/components/Navigation";
@@ -9,6 +8,7 @@ import Skills from "@/components/Skills";
 import ImageSlider from "@/components/ImageSlider";
 import Certifications from "@/components/Certifications";
 import HackathonsAndProjects from "@/components/HackathonsAndProjects";
+import Footer from "@/components/Footer";
 
 const experiences = [
   {
@@ -124,6 +124,7 @@ const Index = () => {
       </div>
 
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
+      <Footer />
     </>
   );
 };
