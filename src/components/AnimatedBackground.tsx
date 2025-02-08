@@ -18,7 +18,7 @@ const AnimatedBackground = () => {
 
     // Create particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 100;
+    const particlesCount = 50; // Reduced from 100
     const posArray = new Float32Array(particlesCount * 3);
     
     for(let i = 0; i < particlesCount * 3; i++) {
@@ -27,23 +27,22 @@ const AnimatedBackground = () => {
     
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
-    // Create lines with more subtle colors
-    const colors = [
-      new THREE.Color('#4B4B4B'), // Grey
-      new THREE.Color('#D72638'), // Primary
-      new THREE.Color('#2563EB'), // Highlight
+    // Create lines with only grey colors
+    const greyColors = [
+      new THREE.Color('#888888'), // Medium grey
+      new THREE.Color('#999999'), // Light grey
     ];
 
     const lines = [];
-    for(let i = 0; i < 3; i++) {
+    for(let i = 0; i < 2; i++) { // Reduced from 3 to 2 lines
       const material = new THREE.LineBasicMaterial({ 
-        color: colors[i],
+        color: greyColors[i],
         transparent: true,
-        opacity: 0.3
+        opacity: 0.25
       });
 
       const points = [];
-      for(let j = 0; j < 100; j++) {
+      for(let j = 0; j < 50; j++) { // Reduced points from 100 to 50
         points.push(
           new THREE.Vector3(
             (Math.random() - 0.5) * 10,
