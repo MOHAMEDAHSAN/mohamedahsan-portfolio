@@ -16,64 +16,47 @@ const AnimatedBackground = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     containerRef.current.appendChild(renderer.domElement);
 
-    // Create spider web effect with multiple grey lines
-    const webLines = [];
-    const numberOfLines = 15;
-    const greyColors = [
-      '#8E9196', // Neutral Grey
-      '#C8C8C9', // Light Grey
-      '#8A898C', // Medium Grey
-      '#9F9EA1', // Silver Grey
+    // Create particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 100;
+    const posArray = new Float32Array(particlesCount * 3);
+    
+    for(let i = 0; i < particlesCount * 3; i++) {
+      posArray[i] = (Math.random() - 0.5) * 5;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+    // Create lines with more subtle colors
+    const colors = [
+      new THREE.Color('#4B4B4B'), // Grey
+      new THREE.Color('#D72638'), // Primary
+      new THREE.Color('#2563EB'), // Highlight
     ];
 
-    // Create circular web structure
-    for (let i = 0; i < numberOfLines; i++) {
+    const lines = [];
+    for(let i = 0; i < 3; i++) {
       const material = new THREE.LineBasicMaterial({ 
-        color: greyColors[i % greyColors.length],
+        color: colors[i],
         transparent: true,
-        opacity: 0.2
+        opacity: 0.3
       });
 
       const points = [];
-      const radius = 3;
-      const segments = 8;
-      
-      // Create spiral effect
-      for (let j = 0; j <= segments * 2; j++) {
-        const angle = (j / segments) * Math.PI * 2;
-        const radiusOffset = (j / (segments * 2)) * radius;
+      for(let j = 0; j < 100; j++) {
         points.push(
           new THREE.Vector3(
-            Math.cos(angle) * radiusOffset,
-            Math.sin(angle) * radiusOffset,
-            (Math.random() - 0.5) * 0.5
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 10
           )
         );
       }
 
-      const geometry = new THREE.BufferGeometry().setFromPoints(points);
-      const line = new THREE.Line(geometry, material);
-      webLines.push(line);
+      const linesGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      const line = new THREE.Line(linesGeometry, material);
+      lines.push(line);
       scene.add(line);
-
-      // Add connecting lines (radial lines)
-      if (i % 2 === 0) {
-        const radialPoints = [];
-        for (let k = 0; k < 6; k++) {
-          const angle = (k / 6) * Math.PI * 2;
-          radialPoints.push(
-            new THREE.Vector3(
-              Math.cos(angle) * radius,
-              Math.sin(angle) * radius,
-              (Math.random() - 0.5) * 0.5
-            )
-          );
-        }
-        const radialGeometry = new THREE.BufferGeometry().setFromPoints(radialPoints);
-        const radialLine = new THREE.Line(radialGeometry, material);
-        webLines.push(radialLine);
-        scene.add(radialLine);
-      }
     }
 
     camera.position.z = 5;
@@ -81,10 +64,9 @@ const AnimatedBackground = () => {
     // Animation
     const animate = () => {
       requestAnimationFrame(animate);
-      webLines.forEach((line, index) => {
-        line.rotation.x += 0.0002 * Math.sin(index);
-        line.rotation.y += 0.0002 * Math.cos(index);
-        line.rotation.z += 0.0001;
+      lines.forEach((line, index) => {
+        line.rotation.x += 0.0005 * (index + 1);
+        line.rotation.y += 0.0005 * (index + 1);
       });
       renderer.render(scene, camera);
     };
@@ -104,7 +86,7 @@ const AnimatedBackground = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       containerRef.current?.removeChild(renderer.domElement);
-      webLines.forEach(line => {
+      lines.forEach(line => {
         scene.remove(line);
         line.geometry.dispose();
         line.material.dispose();
