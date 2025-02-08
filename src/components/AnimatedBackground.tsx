@@ -17,69 +17,78 @@ const AnimatedBackground = () => {
     });
     
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0.1); // Set a semi-transparent black background
+    renderer.setClearColor(0x000000, 0.05); // Very subtle dark background
     containerRef.current.appendChild(renderer.domElement);
 
     // Create particles
     const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 2000; // Increased particle count for better effect
+    const particleCount = 1000; // Reduced particle count for cleaner look
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
-    for (let i = 0; i < particleCount * 3; i += 3) {
-      // Position particles in a sphere
-      const radius = 20; // Increased radius
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos((Math.random() * 2) - 1);
-      
-      positions[i] = radius * Math.sin(phi) * Math.cos(theta);
-      positions[i + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      positions[i + 2] = radius * Math.cos(phi);
+    // Create a grid pattern
+    const gridSize = Math.ceil(Math.cbrt(particleCount));
+    const spacing = 2; // Space between particles
 
-      // Give each particle a gradient color from blue to purple
-      colors[i] = 0.1 + Math.random() * 0.2;     // R: slight purple tint
-      colors[i + 1] = 0.0 + Math.random() * 0.2; // G: minimal for deeper color
-      colors[i + 2] = 0.8 + Math.random() * 0.2; // B: dominant blue
+    let index = 0;
+    for (let x = 0; x < gridSize; x++) {
+      for (let y = 0; y < gridSize; y++) {
+        for (let z = 0; z < gridSize; z++) {
+          if (index >= particleCount * 3) break;
+          
+          positions[index] = (x - gridSize / 2) * spacing;
+          positions[index + 1] = (y - gridSize / 2) * spacing;
+          positions[index + 2] = (z - gridSize / 2) * spacing;
+
+          // Soft blue and purple gradient
+          colors[index] = 0.4;     // R: subtle purple
+          colors[index + 1] = 0.5; // G: minimal for depth
+          colors[index + 2] = 0.8; // B: dominant but soft blue
+          
+          index += 3;
+        }
+      }
     }
 
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.08, // Increased particle size
+      size: 0.15,
       vertexColors: true,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.6,
       blending: THREE.AdditiveBlending
     });
 
     const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particleSystem);
 
-    camera.position.z = 25; // Adjusted camera position
+    camera.position.z = 30;
 
     // Animation
     let time = 0;
     const animate = () => {
       requestAnimationFrame(animate);
-      time += 0.0005; // Slowed down the animation
+      time += 0.0002; // Very slow, smooth animation
 
-      // Update particle positions for wave effect
+      // Create a gentle floating effect
       const positions = particlesGeometry.attributes.position.array;
       for (let i = 0; i < positions.length; i += 3) {
-        const x = positions[i];
-        const y = positions[i + 1];
-        const z = positions[i + 2];
+        const initialX = positions[i];
+        const initialY = positions[i + 1];
+        const initialZ = positions[i + 2];
         
-        // Create wave-like movement
-        positions[i] = x * Math.cos(time) - z * Math.sin(time);
-        positions[i + 2] = z * Math.cos(time) + x * Math.sin(time);
-        positions[i + 1] = y + Math.sin(time + x * 0.5) * 0.3;
+        // Gentle wave motion
+        positions[i] = initialX + Math.sin(time + initialY * 0.1) * 0.3;
+        positions[i + 1] = initialY + Math.cos(time + initialX * 0.1) * 0.3;
+        positions[i + 2] = initialZ + Math.sin(time + initialZ * 0.1) * 0.3;
       }
       particlesGeometry.attributes.position.needsUpdate = true;
 
-      // Rotate the entire system slowly
-      particleSystem.rotation.y += 0.0005;
+      // Very slow rotation
+      particleSystem.rotation.y += 0.0001;
+      particleSystem.rotation.x += 0.00005;
       
       renderer.render(scene, camera);
     };
