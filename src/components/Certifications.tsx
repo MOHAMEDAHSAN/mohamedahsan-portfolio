@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Award } from 'lucide-react';
+import { Award, ExternalLink } from 'lucide-react';
 
 const certifications = [
   {
@@ -14,6 +14,20 @@ const certifications = [
       "/lovable-uploads/c5f01d9f-0ddd-4fcf-8810-9f7983d3f58b.png",
       "/lovable-uploads/b0a46e45-2000-4e84-a56c-47c328db758a.png",
       "/lovable-uploads/b2a38967-0187-468a-bba7-98353e46c387.png"
+    ],
+    verifyLinks: [
+      {
+        title: "Cloud Practitioner",
+        url: "https://www.coursera.org/account/accomplishments/verify/IS2MSYGWMPXU"
+      },
+      {
+        title: "Cloud Technical",
+        url: "https://www.coursera.org/account/accomplishments/verify/3NOVAVSD22W1"
+      },
+      {
+        title: "Exam Prep",
+        url: "https://www.coursera.org/account/accomplishments/verify/R9XMN3TWGJWV"
+      }
     ]
   },
   {
@@ -22,7 +36,13 @@ const certifications = [
     organization: "DeepLearning.AI",
     description: "Acquired expertise in NLP, Machine Learning, PyTorch, NLTK, BERT, and Data Preparation through comprehensive coursework.",
     image: "/lovable-uploads/89da934b-65b7-4cd0-8319-5321c8167d55.png",
-    images: ["/lovable-uploads/7081b4c3-0335-4e9e-a083-08eace11fcec.png"]
+    images: ["/lovable-uploads/7081b4c3-0335-4e9e-a083-08eace11fcec.png"],
+    verifyLinks: [
+      {
+        title: "View Certificate",
+        url: "https://www.coursera.org/account/accomplishments/specialization/42KYTQTIFYAT"
+      }
+    ]
   },
   {
     id: 3,
@@ -30,7 +50,13 @@ const certifications = [
     organization: "NPTEL",
     description: "Completed the IoT certification with a outstanding score of 90/100, demonstrating proficiency in IoT fundamentals and applications.",
     image: "/lovable-uploads/25e3f57a-9e1b-4b7d-b6f2-8d9d436330f1.png",
-    images: ["/lovable-uploads/25e3f57a-9e1b-4b7d-b6f2-8d9d436330f1.png"]
+    images: ["/lovable-uploads/25e3f57a-9e1b-4b7d-b6f2-8d9d436330f1.png"],
+    verifyLinks: [
+      {
+        title: "View Certificate",
+        url: "https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL24CS115S145250348303903500"
+      }
+    ]
   }
 ];
 
@@ -77,7 +103,7 @@ const Certifications = () => {
       </div>
 
       <Dialog open={!!selectedCert} onOpenChange={() => setSelectedCert(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
           {selectedCert && (
             <>
               <DialogHeader>
@@ -86,6 +112,22 @@ const Certifications = () => {
               <div className="space-y-4">
                 <p className="text-accent/80">{selectedCert.organization}</p>
                 <p className="text-accent/70">{selectedCert.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {selectedCert.verifyLinks.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1 text-sm bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      {link.title}
+                    </a>
+                  ))}
+                </div>
+                
                 <div className="grid gap-4">
                   {selectedCert.images.map((img, index) => (
                     <img
@@ -106,4 +148,3 @@ const Certifications = () => {
 };
 
 export default Certifications;
-
