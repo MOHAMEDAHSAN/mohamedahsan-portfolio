@@ -27,35 +27,48 @@ const AnimatedBackground = () => {
     
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
-    // Create lines
-    const material = new THREE.LineBasicMaterial({ 
-      color: 0x64748b,
-      transparent: true,
-      opacity: 0.5
-    });
+    // Create more vibrant lines with gradient effect
+    const gradientColors = [
+      new THREE.Color('#8B5CF6'), // Vivid Purple
+      new THREE.Color('#D946EF'), // Magenta Pink
+      new THREE.Color('#F97316'), // Bright Orange
+      new THREE.Color('#0EA5E9'), // Ocean Blue
+    ];
 
-    const points = [];
-    for(let i = 0; i < 100; i++) {
-      points.push(
-        new THREE.Vector3(
-          (Math.random() - 0.5) * 10,
-          (Math.random() - 0.5) * 10,
-          (Math.random() - 0.5) * 10
-        )
-      );
+    const lines = [];
+    for(let i = 0; i < 4; i++) {
+      const material = new THREE.LineBasicMaterial({ 
+        color: gradientColors[i],
+        transparent: true,
+        opacity: 0.8
+      });
+
+      const points = [];
+      for(let j = 0; j < 100; j++) {
+        points.push(
+          new THREE.Vector3(
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 10,
+            (Math.random() - 0.5) * 10
+          )
+        );
+      }
+
+      const linesGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      const line = new THREE.Line(linesGeometry, material);
+      lines.push(line);
+      scene.add(line);
     }
-
-    const linesGeometry = new THREE.BufferGeometry().setFromPoints(points);
-    const lines = new THREE.Line(linesGeometry, material);
-    scene.add(lines);
 
     camera.position.z = 5;
 
     // Animation
     const animate = () => {
       requestAnimationFrame(animate);
-      lines.rotation.x += 0.001;
-      lines.rotation.y += 0.001;
+      lines.forEach((line, index) => {
+        line.rotation.x += 0.001 * (index + 1);
+        line.rotation.y += 0.001 * (index + 1);
+      });
       renderer.render(scene, camera);
     };
 
@@ -74,9 +87,11 @@ const AnimatedBackground = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       containerRef.current?.removeChild(renderer.domElement);
-      scene.remove(lines);
-      particlesGeometry.dispose();
-      material.dispose();
+      lines.forEach(line => {
+        scene.remove(line);
+        line.geometry.dispose();
+        line.material.dispose();
+      });
       renderer.dispose();
     };
   }, []);
