@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Navigation from "@/components/Navigation";
@@ -15,7 +16,7 @@ const experiences = [
     title: "Mentee",
     company: "Codebyte",
     duration: "Jan 2025 - Present",
-    location: "Chennai, Tamil Nadu, India",
+    location: "Chennai, Tamil Nadu, India (Remote)",
     description:
       "Currently participating in the mentorship program at Codebyte, focusing on advanced software development practices and industry standards.",
     side: "right" as const,
@@ -25,7 +26,7 @@ const experiences = [
     title: "UI/UX Intern",
     company: "Skill First Labs",
     duration: "Oct 2024 - Dec 2024",
-    location: "Chennai, Tamil Nadu, India",
+    location: "Chennai, Tamil Nadu, India (On-Site)",
     description:
       "Designed prototypes, enhanced UX with modern elements, and conducted usability testing for improved user satisfaction.",
     side: "left" as const,
@@ -35,7 +36,7 @@ const experiences = [
     title: "Web Development In-plant Training",
     company: "Computational Intelligence Research Foundation",
     duration: "Jul 2024",
-    location: "Chennai, Tamil Nadu, India",
+    location: "Chennai, Tamil Nadu, India (On-Site)",
     description:
       "Built a functional website using PHP, WordPress, HTML, CSS, and JavaScript, hosted on a free domain.",
     side: "right" as const,
