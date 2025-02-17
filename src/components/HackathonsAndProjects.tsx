@@ -1,11 +1,8 @@
+
 import { Github, Globe } from "lucide-react";
 import { Button } from "./ui/button";
 
-interface HackathonsAndProjectsProps {
-  isAdmin?: boolean;
-}
-
-const HackathonsAndProjects = ({ isAdmin }: HackathonsAndProjectsProps) => {
+const HackathonsAndProjects = () => {
   const projects = [
     {
       title: "IBM Z Datathon",

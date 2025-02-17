@@ -8,7 +8,6 @@ import { useToast } from "./ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
 interface Experience {
-  id?: string;  // Added id as optional since new experiences won't have an id
   title: string;
   company: string;
   duration: string;
