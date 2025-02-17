@@ -9,6 +9,7 @@ import Skills from "@/components/Skills";
 import ImageSlider from "@/components/ImageSlider";
 import Certifications from "@/components/Certifications";
 import HackathonsAndProjects from "@/components/HackathonsAndProjects";
+import Education from "@/components/Education";
 import Footer from "@/components/Footer";
 
 const experiences = [
@@ -112,6 +113,10 @@ const Index = () => {
 
           <div className="py-20">
             <ExperienceTimeline experiences={experiences} />
+          </div>
+          
+          <div className="py-20">
+            <Education />
           </div>
           
           <div className="py-20">
