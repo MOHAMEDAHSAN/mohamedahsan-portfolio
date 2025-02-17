@@ -55,39 +55,45 @@ const SkillCard = ({ name, icon: Icon, details }: { name: string; icon: any; det
   </div>
 );
 
-const Skills = () => {
+interface SkillsProps {
+  isAdmin?: boolean;
+}
+
+const Skills = ({ isAdmin }: SkillsProps) => {
   return (
-    <section id="skills" className="py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-amaranth font-bold text-center mb-16 relative">
-          <span className="relative inline-block">
-            Skills
-            <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary via-highlight to-primary/50"></div>
-          </span>
-        </h2>
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Non-Technical Skills */}
-          <div>
-            <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">Non-Technical Skills</h3>
-            <div className="grid gap-4">
-              {nonTechnicalSkills.map((skill) => (
-                <SkillCard key={skill.name} {...skill} />
-              ))}
+    <div>
+      <section id="skills" className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-amaranth font-bold text-center mb-16 relative">
+            <span className="relative inline-block">
+              Skills
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary via-highlight to-primary/50"></div>
+            </span>
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Non-Technical Skills */}
+            <div>
+              <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">Non-Technical Skills</h3>
+              <div className="grid gap-4">
+                {nonTechnicalSkills.map((skill) => (
+                  <SkillCard key={skill.name} {...skill} />
+                ))}
+              </div>
             </div>
-          </div>
-          
-          {/* Technical Skills */}
-          <div>
-            <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">Technical Skills</h3>
-            <div className="grid gap-4">
-              {technicalSkills.map((skill) => (
-                <SkillCard key={skill.name} {...skill} />
-              ))}
+            
+            {/* Technical Skills */}
+            <div>
+              <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">Technical Skills</h3>
+              <div className="grid gap-4">
+                {technicalSkills.map((skill) => (
+                  <SkillCard key={skill.name} {...skill} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
