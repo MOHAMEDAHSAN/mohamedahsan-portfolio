@@ -6,7 +6,7 @@ interface Education {
   logo: string;
 }
 
-const Education = () => {
+const Education = ({ isAdmin }: { isAdmin?: boolean }) => {
   const educationData: Education[] = [
     {
       institution: "Saveetha Engineering College",
