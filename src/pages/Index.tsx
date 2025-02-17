@@ -11,7 +11,6 @@ import Certifications from "@/components/Certifications";
 import HackathonsAndProjects from "@/components/HackathonsAndProjects";
 import Education from "@/components/Education";
 import Footer from "@/components/Footer";
-import { useAuthStore } from "@/lib/store";
 
 const experiences = [
   {
@@ -48,7 +47,6 @@ const experiences = [
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
-  const { user } = useAuthStore();
 
   const scrollToSection = (sectionId: string) => {
     if (sectionId === "home") {
@@ -114,20 +112,20 @@ const Index = () => {
           </section>
 
           <div className="py-20">
-            <ExperienceTimeline experiences={experiences} isAdmin={!!user} />
+            <ExperienceTimeline experiences={experiences} />
           </div>
           
           <div className="py-20">
-            <Education isAdmin={!!user} />
+            <Education />
           </div>
           
           <div className="py-20">
-            <HackathonsAndProjects isAdmin={!!user} />
+            <HackathonsAndProjects />
           </div>
           
-          <Certifications isAdmin={!!user} />
+          <Certifications />
           
-          <Skills isAdmin={!!user} />
+          <Skills />
         </div>
       </div>
 
