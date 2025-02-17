@@ -148,7 +148,7 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
               variant="ghost"
               size="icon"
               onClick={handleLogout}
-              className="w-9 h-9"
+              className="w-9 h-9 text-primary hover:text-primary hover:bg-primary/10"
             >
               <LogOut className="w-5 h-5" />
             </Button>
@@ -157,7 +157,7 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
               variant="ghost"
               size="icon"
               onClick={() => setIsAuthOpen(true)}
-              className="w-9 h-9"
+              className="w-9 h-9 text-primary hover:text-primary hover:bg-primary/10"
             >
               <UserCircle2 className="w-5 h-5" />
             </Button>
