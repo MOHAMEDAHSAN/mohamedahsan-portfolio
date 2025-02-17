@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import {
   NavigationMenu,
@@ -70,7 +71,7 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
       }}
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto">
-        <NavigationMenu>
+        <NavigationMenu className="mx-auto">
           <NavigationMenuList className="gap-6">
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -141,25 +142,27 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {user ? (
-          <Button
-            variant="ghost"
-            className="flex items-center gap-2"
-            onClick={handleLogout}
-          >
-            <LogOut className="w-5 h-5" />
-            Logout
-          </Button>
-        ) : (
-          <Button
-            variant="ghost"
-            className="flex items-center gap-2"
-            onClick={() => setIsAuthOpen(true)}
-          >
-            <UserCircle2 className="w-5 h-5" />
-            Admin
-          </Button>
-        )}
+        <div className="absolute right-6">
+          {user ? (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleLogout}
+              className="w-9 h-9"
+            >
+              <LogOut className="w-5 h-5" />
+            </Button>
+          ) : (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsAuthOpen(true)}
+              className="w-9 h-9"
+            >
+              <UserCircle2 className="w-5 h-5" />
+            </Button>
+          )}
+        </div>
       </div>
 
       <AdminAuth isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
