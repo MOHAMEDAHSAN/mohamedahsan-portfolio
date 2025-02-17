@@ -55,7 +55,11 @@ const SkillCard = ({ name, icon: Icon, details }: { name: string; icon: any; det
   </div>
 );
 
-const Skills = () => {
+interface SkillsProps {
+  isAdmin?: boolean;
+}
+
+const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
   return (
     <section id="skills" className="py-20">
       <div className="max-w-7xl mx-auto px-6">

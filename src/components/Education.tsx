@@ -1,4 +1,3 @@
-
 interface Education {
   institution: string;
   degree: string;
@@ -6,7 +5,11 @@ interface Education {
   logo: string;
 }
 
-const Education = ({ isAdmin }: { isAdmin?: boolean }) => {
+interface EducationProps {
+  isAdmin?: boolean;
+}
+
+const Education: React.FC<EducationProps> = ({ isAdmin }) => {
   const educationData: Education[] = [
     {
       institution: "Saveetha Engineering College",

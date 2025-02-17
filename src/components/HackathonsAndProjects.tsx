@@ -1,8 +1,11 @@
-
 import { Github, Globe } from "lucide-react";
 import { Button } from "./ui/button";
 
-const HackathonsAndProjects = () => {
+interface HackathonsAndProjectsProps {
+  isAdmin?: boolean;
+}
+
+const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }) => {
   const projects = [
     {
       title: "IBM Z Datathon",

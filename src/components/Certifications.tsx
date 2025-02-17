@@ -1,7 +1,10 @@
-
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Award, ExternalLink } from 'lucide-react';
+
+interface CertificationsProps {
+  isAdmin?: boolean;
+}
 
 const certifications = [
   {
@@ -78,7 +81,7 @@ const CertificationCard = ({ certification, onClick }: { certification: typeof c
   </div>
 );
 
-const Certifications = () => {
+const Certifications: React.FC<CertificationsProps> = ({ isAdmin }) => {
   const [selectedCert, setSelectedCert] = useState<typeof certifications[0] | null>(null);
 
   return (

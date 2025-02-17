@@ -8,6 +8,7 @@ import { useToast } from "./ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
 interface Experience {
+  id?: string;  // Added id property
   title: string;
   company: string;
   duration: string;
