@@ -1,3 +1,4 @@
+
 interface EducationProps {
   isAdmin?: boolean;
 }
