@@ -1,18 +1,34 @@
+
 import { Github, Globe } from "lucide-react";
 import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
 
 interface HackathonsAndProjectsProps {
   isAdmin?: boolean;
 }
 
 const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({});
+
   const projects = [
+    {
+      title: "KU25 24-Hours HACKATHON",
+      subtitle: "FloodGuard ~ Flood Simulation Model",
+      date: "Feb 2025",
+      description: "A flood simulation model providing advanced analytics and real-time assessment of water level rise based on environmental parameters. The system analyzes static parameters and antecedent precipitation to predict and monitor flood risks.",
+      images: [
+        "/lovable-uploads/446e37d9-61d8-4e1d-898a-83e8d9658d47.png",
+        "/lovable-uploads/662fc5e6-c42a-4446-8f40-d67686b31599.png"
+      ],
+      github: "https://github.com/MOHAMEDAHSAN/flood65-74",
+      website: "https://floodguard-two.vercel.app/",
+    },
     {
       title: "IBM Z Datathon",
       subtitle: "REIMAGINING URBAN SPACES",
       date: "Oct 2024",
       description: "Our project leverages data science and machine learning to tackle two major urban issues-traffic congestion and sewage management by providing predictive insights and optimization solutions. This integrated approach enables cities to become more efficient, sustainable, and resilient.",
-      thumbnail: "/lovable-uploads/5c42d0f5-f1b8-4718-8852-86d06f0b8a02.png",
+      images: ["/lovable-uploads/5c42d0f5-f1b8-4718-8852-86d06f0b8a02.png"],
       github: "https://github.com/MOHAMEDAHSAN/REIMAGINING-URBAN-SPACES---IBM-Z-DATATHON",
     },
     {
@@ -20,11 +36,40 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
       subtitle: "Here&Now ~ Never miss a moment, place, or time",
       date: "Feb 2025",
       description: "Here&Now is a web application designed to help users set location-based alarms/reminders to ensure they never miss an important moment, place, or time. The app provides additional features such as weather reports and location insights, making it a versatile tool for travelers, commuters, and anyone who wants to stay informed about their surroundings.",
-      thumbnail: "/lovable-uploads/c9175ef7-dbed-4ea9-9678-59263552d791.png",
+      images: ["/lovable-uploads/c9175ef7-dbed-4ea9-9678-59263552d791.png"],
       github: "https://github.com/MOHAMEDAHSAN/here-now",
       website: "https://here-now-five.vercel.app/",
     },
   ];
+
+  useEffect(() => {
+    // Initialize currentImageIndex for each project
+    const initialIndices = projects.reduce((acc, project, index) => {
+      acc[index] = 0;
+      return acc;
+    }, {} as { [key: string]: number });
+    setCurrentImageIndex(initialIndices);
+
+    // Set up image rotation intervals for each project
+    const intervals = projects.map((project, index) => {
+      if (project.images.length > 1) {
+        return setInterval(() => {
+          setCurrentImageIndex(prev => ({
+            ...prev,
+            [index]: (prev[index] + 1) % project.images.length
+          }));
+        }, 3000); // Change image every 3 seconds
+      }
+      return null;
+    });
+
+    // Cleanup intervals
+    return () => {
+      intervals.forEach(interval => {
+        if (interval) clearInterval(interval);
+      });
+    };
+  }, []);
 
   return (
     <section id="hackathons" className="relative">
@@ -46,7 +91,7 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
               onClick={() => window.open(project.website || project.github, '_blank')}
             >
               <img 
-                src={project.thumbnail} 
+                src={project.images[currentImageIndex[index] || 0]} 
                 alt={project.title}
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               />
