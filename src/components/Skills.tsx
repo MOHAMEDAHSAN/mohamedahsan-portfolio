@@ -1,3 +1,4 @@
+
 import {
   Brain,
   MessageSquare,
@@ -27,6 +28,7 @@ const nonTechnicalSkills = [
 const technicalSkills = [
   { name: "Machine Learning", icon: Brain },
   { name: "NLP", icon: MessageSquare },
+  { name: "Java", icon: "https://www.vectorlogo.zone/logos/java/java-icon.svg" },
   { name: "Figma", icon: "https://www.vectorlogo.zone/logos/figma/figma-icon.svg" },
   { name: "PHP", icon: "https://www.vectorlogo.zone/logos/php/php-icon.svg" },
   { name: "Atom", icon: "https://www.vectorlogo.zone/logos/atom_io/atom_io-icon.svg" },

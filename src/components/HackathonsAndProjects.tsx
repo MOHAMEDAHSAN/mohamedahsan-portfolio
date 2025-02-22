@@ -1,3 +1,4 @@
+
 import { Github, Globe } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
@@ -109,24 +110,36 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
               </p>
               
               <div className="flex gap-4 flex-wrap">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="gap-2"
-                  onClick={() => window.open(project.github, '_blank')}
-                >
-                  <Github size={16} />
-                  GitHub Cloud
-                </Button>
-                {project.githubLocal && (
+                {project.githubLocal ? (
+                  <>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="gap-2"
+                      onClick={() => window.open(project.github, '_blank')}
+                    >
+                      <Github size={16} />
+                      GitHub Cloud
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="gap-2"
+                      onClick={() => window.open(project.githubLocal, '_blank')}
+                    >
+                      <Github size={16} />
+                      GitHub Local
+                    </Button>
+                  </>
+                ) : (
                   <Button
                     variant="outline"
                     size="sm"
                     className="gap-2"
-                    onClick={() => window.open(project.githubLocal, '_blank')}
+                    onClick={() => window.open(project.github, '_blank')}
                   >
                     <Github size={16} />
-                    GitHub Local
+                    GitHub
                   </Button>
                 )}
                 {project.website && (
