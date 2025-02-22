@@ -14,7 +14,10 @@ import {
   Crown,
   Briefcase,
   Languages,
+  Search,
 } from "lucide-react";
+import { Input } from "./ui/input";
+import { useState } from "react";
 
 const nonTechnicalSkills = [
   { name: "Problem Solving", icon: Lightbulb },
@@ -62,6 +65,18 @@ interface SkillsProps {
 }
 
 const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filterSkills = (skills: any[], query: string) => {
+    return skills.filter(skill => 
+      skill.name.toLowerCase().includes(query.toLowerCase()) ||
+      (skill.details && skill.details.toLowerCase().includes(query.toLowerCase()))
+    );
+  };
+
+  const filteredTechnicalSkills = filterSkills(technicalSkills, searchQuery);
+  const filteredNonTechnicalSkills = filterSkills(nonTechnicalSkills, searchQuery);
+
   return (
     <section id="skills" className="py-20">
       <div className="max-w-7xl mx-auto px-6">
@@ -71,24 +86,48 @@ const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
             <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary via-highlight to-primary/50"></div>
           </span>
         </h2>
+
+        <div className="max-w-md mx-auto mb-12">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Input
+              type="text"
+              placeholder="Search skills..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 w-full"
+            />
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-12">
           {/* Non-Technical Skills */}
           <div>
-            <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">Non-Technical Skills</h3>
+            <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">
+              Non-Technical Skills {filteredNonTechnicalSkills.length > 0 && `(${filteredNonTechnicalSkills.length})`}
+            </h3>
             <div className="grid gap-4">
-              {nonTechnicalSkills.map((skill) => (
+              {filteredNonTechnicalSkills.map((skill) => (
                 <SkillCard key={skill.name} {...skill} />
               ))}
+              {filteredNonTechnicalSkills.length === 0 && searchQuery && (
+                <p className="text-gray-500 italic">No non-technical skills found matching "{searchQuery}"</p>
+              )}
             </div>
           </div>
           
           {/* Technical Skills */}
           <div>
-            <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">Technical Skills</h3>
+            <h3 className="text-xl font-amaranth font-semibold mb-6 text-primary">
+              Technical Skills {filteredTechnicalSkills.length > 0 && `(${filteredTechnicalSkills.length})`}
+            </h3>
             <div className="grid gap-4">
-              {technicalSkills.map((skill) => (
+              {filteredTechnicalSkills.map((skill) => (
                 <SkillCard key={skill.name} {...skill} />
               ))}
+              {filteredTechnicalSkills.length === 0 && searchQuery && (
+                <p className="text-gray-500 italic">No technical skills found matching "{searchQuery}"</p>
+              )}
             </div>
           </div>
         </div>
