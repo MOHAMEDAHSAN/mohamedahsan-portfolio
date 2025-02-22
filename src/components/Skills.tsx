@@ -106,23 +106,23 @@ const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
           </span>
         </h2>
 
-        <div className="max-w-md mx-auto mb-12 space-y-4">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <Input
-              type="text"
-              placeholder="Search skills..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 w-full"
-            />
-          </div>
-          <div className="flex justify-end">
+        <div className="max-w-2xl mx-auto mb-12">
+          <div className="flex gap-4 items-center">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Input
+                type="text"
+                placeholder="Search skills..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 w-full border-primary focus:ring-primary/20"
+              />
+            </div>
             <Select value={sortOrder} onValueChange={(value) => setSortOrder(value as SortOrder)}>
-              <SelectTrigger className="w-[150px]">
+              <SelectTrigger className="w-[150px] bg-primary text-white border-primary hover:bg-primary/90 transition-colors">
                 <SelectValue placeholder="Sort order" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-white border-primary">
                 <SelectItem value="default">Default</SelectItem>
                 <SelectItem value="asc">A to Z</SelectItem>
                 <SelectItem value="desc">Z to A</SelectItem>
