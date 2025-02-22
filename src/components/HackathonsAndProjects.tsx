@@ -1,4 +1,3 @@
-
 import { Github, Globe } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
@@ -12,7 +11,7 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
 
   const projects = [
     {
-      title: "KU25 24-Hours HACKATHON",
+      title: "🌊 KU25 24-Hours HACKATHON",
       subtitle: "FloodGuard ~ Flood Simulation Model",
       date: "Feb 2025",
       description: "A flood simulation model providing advanced analytics and real-time assessment of water level rise based on environmental parameters. The system analyzes static parameters and antecedent precipitation to predict and monitor flood risks.",
@@ -20,8 +19,9 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
         "/lovable-uploads/446e37d9-61d8-4e1d-898a-83e8d9658d47.png",
         "/lovable-uploads/662fc5e6-c42a-4446-8f40-d67686b31599.png"
       ],
-      github: "https://github.com/MOHAMEDAHSAN/flood65-74",
-      website: "https://floodguard-two.vercel.app/",
+      github: "https://github.com/MOHAMEDAHSAN/floodguard",
+      githubLocal: "https://github.com/MOHAMEDAHSAN/floodguard_Local",
+      website: "https://floodguard-three.vercel.app/",
     },
     {
       title: "IBM Z Datathon",
@@ -108,7 +108,7 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
                 {project.description}
               </p>
               
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 <Button
                   variant="outline"
                   size="sm"
@@ -116,8 +116,19 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
                   onClick={() => window.open(project.github, '_blank')}
                 >
                   <Github size={16} />
-                  GitHub
+                  GitHub Cloud
                 </Button>
+                {project.githubLocal && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="gap-2"
+                    onClick={() => window.open(project.githubLocal, '_blank')}
+                  >
+                    <Github size={16} />
+                    GitHub Local
+                  </Button>
+                )}
                 {project.website && (
                   <Button
                     variant="outline"
