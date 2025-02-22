@@ -18,6 +18,13 @@ import {
 } from "lucide-react";
 import { Input } from "./ui/input";
 import { useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 const nonTechnicalSkills = [
   { name: "Problem Solving", icon: Lightbulb },
@@ -64,8 +71,11 @@ interface SkillsProps {
   isAdmin?: boolean;
 }
 
+type SortOrder = "default" | "asc" | "desc";
+
 const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("default");
 
   const filterSkills = (skills: any[], query: string) => {
     return skills.filter(skill => 
@@ -74,8 +84,17 @@ const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
     );
   };
 
-  const filteredTechnicalSkills = filterSkills(technicalSkills, searchQuery);
-  const filteredNonTechnicalSkills = filterSkills(nonTechnicalSkills, searchQuery);
+  const sortSkills = (skills: any[]) => {
+    if (sortOrder === "default") return skills;
+    
+    return [...skills].sort((a, b) => {
+      const comparison = a.name.localeCompare(b.name);
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
+  };
+
+  const filteredTechnicalSkills = sortSkills(filterSkills(technicalSkills, searchQuery));
+  const filteredNonTechnicalSkills = sortSkills(filterSkills(nonTechnicalSkills, searchQuery));
 
   return (
     <section id="skills" className="py-20">
@@ -87,7 +106,7 @@ const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
           </span>
         </h2>
 
-        <div className="max-w-md mx-auto mb-12">
+        <div className="max-w-md mx-auto mb-12 space-y-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <Input
@@ -97,6 +116,18 @@ const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10 w-full"
             />
+          </div>
+          <div className="flex justify-end">
+            <Select value={sortOrder} onValueChange={(value) => setSortOrder(value as SortOrder)}>
+              <SelectTrigger className="w-[150px]">
+                <SelectValue placeholder="Sort order" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="default">Default</SelectItem>
+                <SelectItem value="asc">A to Z</SelectItem>
+                <SelectItem value="desc">Z to A</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
 
