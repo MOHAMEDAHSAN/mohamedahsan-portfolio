@@ -24,17 +24,21 @@ export const socialLinks = [
     defaultColor: "text-[#e4405f]",
   },
   {
-    icon: Terminal,
+    icon: ({ size, className }) => (
+      <div className={`${className} flex items-center justify-center font-bold`} style={{ width: size, height: size }}>
+        LC
+      </div>
+    ),
     href: "https://leetcode.com/u/mysticahsan/",
     label: "LeetCode",
-    tooltip: "Check my coding skills! 💻",
+    tooltip: "Check my LeetCode profile 👨‍💻",
     defaultColor: "text-[#FFA116]",
   },
   {
     icon: Code,
     href: "https://www.geeksforgeeks.org/user/ahsansalf93o/",
     label: "GeeksforGeeks",
-    tooltip: "View my problem solving! 🎯",
+    tooltip: "Check my GeeksforGeeks profile 🎓",
     defaultColor: "text-[#2F8D46]",
   },
   {
@@ -60,10 +64,17 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
           title={link.tooltip}
           className="group relative p-3 bg-white hover:bg-primary rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up"
         >
-          <link.icon
-            size={24}
-            className={`${link.defaultColor} group-hover:text-white transition-colors duration-300`}
-          />
+          {typeof link.icon === "function" ? (
+            <link.icon
+              size={24}
+              className={`${link.defaultColor} group-hover:text-white transition-colors duration-300`}
+            />
+          ) : (
+            <link.icon
+              size={24}
+              className={`${link.defaultColor} group-hover:text-white transition-colors duration-300`}
+            />
+          )}
           <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-primary text-white px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap text-sm font-poppins">
             {link.tooltip}
           </span>
