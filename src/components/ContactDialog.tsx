@@ -1,5 +1,5 @@
 
-import { Phone } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -41,6 +41,14 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>
             <span className="text-accent group-hover:text-primary transition-colors">ahsansaleem2006@gmail.com</span>
+          </div>
+          <div className="group flex items-start gap-4 p-3 rounded-lg transition-all duration-300 hover:bg-gray-100">
+            <MapPin className="h-5 w-5 text-primary transition-transform group-hover:scale-110 mt-1" />
+            <span className="text-accent group-hover:text-primary transition-colors">
+              MMDA Colony,<br />
+              Arumbakkam,<br />
+              Chennai - 600106
+            </span>
           </div>
         </div>
       </DialogContent>

@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Instagram, FileText, Phone } from "lucide-react";
+import { Github, Linkedin, Instagram, FileText, Phone, Terminal, Code } from "lucide-react";
 
 export const socialLinks = [
   {
@@ -24,6 +24,20 @@ export const socialLinks = [
     defaultColor: "text-[#e4405f]",
   },
   {
+    icon: Terminal,
+    href: "https://leetcode.com/u/mysticahsan/",
+    label: "LeetCode",
+    tooltip: "Check my coding skills! 💻",
+    defaultColor: "text-[#FFA116]",
+  },
+  {
+    icon: Code,
+    href: "https://www.geeksforgeeks.org/user/ahsansalf93o/",
+    label: "GeeksforGeeks",
+    tooltip: "View my problem solving! 🎯",
+    defaultColor: "text-[#2F8D46]",
+  },
+  {
     icon: FileText,
     href: "#",
     label: "Resume",
@@ -38,7 +52,7 @@ interface SocialLinksProps {
 
 const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
   return (
-    <div className="flex gap-4 pt-6">
+    <div className="flex gap-4 pt-6 flex-wrap">
       {socialLinks.map((link) => (
         <a
           key={link.label}
