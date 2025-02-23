@@ -1,7 +1,17 @@
 
-import { Github, Linkedin, Instagram, FileText, Phone, Terminal, Code } from "lucide-react";
+import { Github, Linkedin, Instagram, FileText, Phone, Code, LucideIcon } from "lucide-react";
 
-export const socialLinks = [
+type IconType = LucideIcon | ((props: { size: number; className: string }) => JSX.Element);
+
+interface SocialLink {
+  icon: IconType;
+  href: string;
+  label: string;
+  tooltip: string;
+  defaultColor: string;
+}
+
+export const socialLinks: SocialLink[] = [
   {
     icon: Github,
     href: "https://github.com/MOHAMEDAHSAN",
@@ -70,6 +80,7 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
               className={`${link.defaultColor} group-hover:text-white transition-colors duration-300`}
             />
           ) : (
+            // @ts-expect-error - LucideIcon typing issue
             <link.icon
               size={24}
               className={`${link.defaultColor} group-hover:text-white transition-colors duration-300`}
