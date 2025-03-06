@@ -12,6 +12,20 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
 
   const projects = [
     {
+      title: "🏆 Taxonomist - GidyTechpreneur (Winner)",
+      subtitle: "Predict Tax Policy Success with Machine Learning",
+      date: "Mar 2025",
+      description: "Taxonomist is a machine learning-powered web application that helps policymakers and analysts evaluate the potential success of tax policies based on economic indicators. Disclaimer: Since the dataset/features are still extending we have only depicted part of the solution and the idea. This is a long term project idea and in working. Thus, this isn't the final output. Features include Tax Policy Simulation, GDP Calculator, User-Friendly Interface, and ML Model Integration.",
+      images: [
+        "/lovable-uploads/7ce334c9-bda6-4cb3-9714-6b0bacd31a93.png",
+        "/lovable-uploads/909123c3-4484-4f31-b227-a4a37fe067c1.png",
+        "/lovable-uploads/fe9af573-871e-4e7c-8dbe-ba436d714098.png",
+        "/lovable-uploads/acefdb31-d9a1-4c18-b678-ba9112c15788.png"
+      ],
+      github: "https://github.com/MOHAMEDAHSAN/taxonomist-gidy",
+      website: "https://taxonomist-gidy.vercel.app/",
+    },
+    {
       title: "🌊 KU25 24-Hours HACKATHON",
       subtitle: "FloodGuard ~ Flood Simulation Model",
       date: "Feb 2025",
@@ -25,21 +39,21 @@ const HackathonsAndProjects: React.FC<HackathonsAndProjectsProps> = ({ isAdmin }
       website: "https://floodguard-three.vercel.app/",
     },
     {
-      title: "IBM Z Datathon",
-      subtitle: "REIMAGINING URBAN SPACES",
-      date: "Oct 2024",
-      description: "Our project leverages data science and machine learning to tackle two major urban issues-traffic congestion and sewage management by providing predictive insights and optimization solutions. This integrated approach enables cities to become more efficient, sustainable, and resilient.",
-      images: ["/lovable-uploads/5c42d0f5-f1b8-4718-8852-86d06f0b8a02.png"],
-      github: "https://github.com/MOHAMEDAHSAN/REIMAGINING-URBAN-SPACES---IBM-Z-DATATHON",
-    },
-    {
-      title: "Freelance Project",
+      title: "💡 MiniProject",
       subtitle: "Here&Now ~ Never miss a moment, place, or time",
       date: "Feb 2025",
       description: "Here&Now is a web application designed to help users set location-based alarms/reminders to ensure they never miss an important moment, place, or time. The app provides additional features such as weather reports and location insights, making it a versatile tool for travelers, commuters, and anyone who wants to stay informed about their surroundings.",
       images: ["/lovable-uploads/c9175ef7-dbed-4ea9-9678-59263552d791.png"],
       github: "https://github.com/MOHAMEDAHSAN/here-now",
       website: "https://here-now-five.vercel.app/",
+    },
+    {
+      title: "IBM Z Datathon",
+      subtitle: "REIMAGINING URBAN SPACES",
+      date: "Oct 2024",
+      description: "Our project leverages data science and machine learning to tackle two major urban issues-traffic congestion and sewage management by providing predictive insights and optimization solutions. This integrated approach enables cities to become more efficient, sustainable, and resilient.",
+      images: ["/lovable-uploads/5c42d0f5-f1b8-4718-8852-86d06f0b8a02.png"],
+      github: "https://github.com/MOHAMEDAHSAN/REIMAGINING-URBAN-SPACES---IBM-Z-DATATHON",
     },
   ];
 
