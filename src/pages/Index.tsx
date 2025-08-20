@@ -51,7 +51,7 @@ const experiences = [
     location: "Chennai, Tamil Nadu, India (On-Site)",
     description:
       "Designed prototypes, enhanced UX with modern elements, and conducted usability testing for improved user satisfaction.",
-    side: "left" as const,
+    side: "right" as const,
     logo: "/lovable-uploads/061a06a2-f177-45c1-8f1d-446310dfeeb0.png"
   },
   {
@@ -61,7 +61,7 @@ const experiences = [
     location: "Chennai, Tamil Nadu, India (On-Site)",
     description:
       "Built a functional website using PHP, WordPress, HTML, CSS, and JavaScript, hosted on a free domain.",
-    side: "right" as const,
+    side: "left" as const,
     logo: "/lovable-uploads/8623bb43-451c-4f5e-9bbb-40156f5277d7.png"
   },
 ];

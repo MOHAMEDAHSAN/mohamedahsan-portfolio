@@ -199,7 +199,7 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
                 {/* Description with expandable functionality */}
                 <div className="mt-4">
                   {expandedExperience === index ? (
-                    <div className="relative">
+                    <div className="relative cursor-pointer" onClick={() => setExpandedExperience(null)}>
                       <div className="space-y-2">
                         {formatDescriptionBullets(exp.description).map((bullet, idx) => (
                           <div key={idx} className="flex items-start gap-2">
@@ -208,7 +208,7 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
                           </div>
                         ))}
                       </div>
-                      <div className="flex items-center gap-1 mt-2 text-primary hover:text-primary/80 transition-colors cursor-pointer" onClick={() => setExpandedExperience(null)}>
+                      <div className="flex items-center gap-1 mt-2 text-primary hover:text-primary/80 transition-colors">
                         <span className="text-xs">Show less</span>
                         <ChevronUp className="w-3 h-3" />
                       </div>
@@ -221,12 +221,10 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
                           {formatDescriptionBullets(exp.description)[0]}
                         </p>
                       </div>
-                      {formatDescriptionBullets(exp.description).length > 1 && (
-                        <div className="flex items-center gap-1 mt-2 text-primary hover:text-primary/80 transition-colors">
-                          <span className="text-xs">Show more</span>
-                          <ChevronDown className="w-3 h-3" />
-                        </div>
-                      )}
+                      <div className="flex items-center gap-1 mt-2 text-primary hover:text-primary/80 transition-colors">
+                        <span className="text-xs">Show more</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
                     </div>
                   )}
                 </div>
