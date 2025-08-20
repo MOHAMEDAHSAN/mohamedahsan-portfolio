@@ -15,13 +15,31 @@ import { useAuthStore } from "@/lib/store";
 
 const experiences = [
   {
+    title: "Assistant Coordinator",
+    company: "Tech Society",
+    duration: "Aug 2025 - Current",
+    location: "Full-time",
+    description:
+      "Hosted events on Kivy app development in Python. Being a part of the central team of the student-driven club, TechSociety. Managing 5 different communities with 300+ active members.",
+    side: "left" as const,
+  },
+  {
+    title: "AI Product Developer Intern",
+    company: "6s Consulting",
+    duration: "July 2025 - Aug 2025",
+    location: "On-Site",
+    description:
+      "Our team operated under the Agile Scrum methodology, conducting daily stand-up meetings (DSMs) for progress updates and Weekly Sprint reviews through structured presentations. I contributed to the end-to-end development of AI-driven product 'DewDrop' using the MERN stack (MongoDB, Express.js, React with Vite, Node.js). I collaborated closely with teams, leveraging project management tools like Jira and Confluence (Atlassian.net) for agile workflow tracking and documentation. I worked on UI/UX prototyping using Figma, created visual presentations with Canva, and integrated LangChain for building AI-powered features within the product.",
+    side: "right" as const,
+  },
+  {
     title: "Mentee",
     company: "Codebyte",
     duration: "Jan 2025 - Present",
     location: "Chennai, Tamil Nadu, India (Remote)",
     description:
       "Currently participating in the mentorship program at Codebyte, focusing on advanced software development practices and industry standards.",
-    side: "right" as const,
+    side: "left" as const,
     logo: "/lovable-uploads/97dee31b-02d8-4eb0-936b-33ba8e339b56.png"
   },
   {
