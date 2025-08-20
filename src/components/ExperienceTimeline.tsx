@@ -1,5 +1,5 @@
 
-import { Pencil, Plus, Trash, ChevronDown, ChevronUp, X } from "lucide-react";
+import { Pencil, Plus, Trash, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
@@ -200,14 +200,6 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
                 <div className="mt-4">
                   {expandedExperience === index ? (
                     <div className="relative">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="absolute -top-2 -right-2 p-1 h-6 w-6"
-                        onClick={() => setExpandedExperience(null)}
-                      >
-                        <X className="w-4 h-4" />
-                      </Button>
                       <div className="space-y-2">
                         {formatDescriptionBullets(exp.description).map((bullet, idx) => (
                           <div key={idx} className="flex items-start gap-2">
@@ -215,6 +207,10 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
                             <p className="text-accent/80 text-sm leading-relaxed">{bullet}</p>
                           </div>
                         ))}
+                      </div>
+                      <div className="flex items-center gap-1 mt-2 text-primary hover:text-primary/80 transition-colors cursor-pointer" onClick={() => setExpandedExperience(null)}>
+                        <span className="text-xs">Show less</span>
+                        <ChevronUp className="w-3 h-3" />
                       </div>
                     </div>
                   ) : (
