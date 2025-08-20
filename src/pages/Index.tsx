@@ -20,7 +20,7 @@ const experiences = [
     duration: "Aug 2025 - Current",
     location: "Full-time",
     description:
-      "Hosted events on Kivy app development in Python. Being a part of the central team of the student-driven club, TechSociety. Managing 5 different communities with 300+ active members.",
+      "Being a part of the central team of the student-driven club, TechSociety. Managing 5 different communities with 300+ active members. Hosted events on Kivy app development in Python. ",
     side: "left" as const,
     logo: "/lovable-uploads/229f5310-104c-4224-8a06-8946acb12a00.png"
   },
@@ -116,9 +116,7 @@ const Index = () => {
                   </span>
                 </h1>
                 <p className="text-lg text-accent/80 leading-relaxed">
-                  Tech enthusiast skilled in AI, ML, and UI/UX, transforming ideas
-                  into impactful solutions. Currently exploring Neo4j, Node.js, and
-                  AWS to push innovation further.
+                  Versatile tech professional with experience in AI, ML, UI/UX, Java & MERN stacks, currently deepening skills in fullstack development, AI systems, and DSA.
                 </p>
 
                 <SocialLinks onContactClick={() => setContactOpen(true)} />
