@@ -20,7 +20,7 @@ const experiences = [
     duration: "Aug 2025 - Current",
     location: "Full-time",
     description:
-      "Being a part of the central team of the student-driven club, TechSociety. Managing 5 different communities with 300+ active members. Hosted events on Kivy app development in Python. ",
+      "Serving as a key member of the central team for the student-led club, TechSociety - Build Together, Learn Faster. Managing 5 different communities with 300+ active members. Hosted events on Kivy app development in Python. ",
     side: "left" as const,
     logo: "/lovable-uploads/229f5310-104c-4224-8a06-8946acb12a00.png"
   },
