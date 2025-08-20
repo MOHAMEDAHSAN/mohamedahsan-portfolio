@@ -1,5 +1,5 @@
 
-import { Pencil, Plus, Trash } from "lucide-react";
+import { Pencil, Plus, Trash, ChevronDown, ChevronUp, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
@@ -26,6 +26,7 @@ interface ExperienceTimelineProps {
 const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingExperience, setEditingExperience] = useState<Experience | null>(null);
+  const [expandedExperience, setExpandedExperience] = useState<number | null>(null);
   const [formData, setFormData] = useState<Experience>({
     title: "",
     company: "",
@@ -36,6 +37,11 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
     logo: ""
   });
   const { toast } = useToast();
+
+  const formatDescriptionBullets = (description: string) => {
+    const sentences = description.split('. ').filter(s => s.trim().length > 0);
+    return sentences.map(sentence => sentence.trim().endsWith('.') ? sentence : sentence + '.');
+  };
 
   const handleEdit = (experience: Experience) => {
     setEditingExperience(experience);
@@ -185,9 +191,49 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
                     </div>
                   )}
                 </div>
-                <p className="text-sm text-accent/60">{exp.location}</p>
-                <p className="text-accent/80 mt-2">{exp.description}</p>
-                <p className="text-sm text-primary/80 mt-2">{exp.duration}</p>
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-accent/60">{exp.location}</p>
+                  <p className="text-sm text-primary/80">{exp.duration}</p>
+                </div>
+                
+                {/* Description with expandable functionality */}
+                <div className="mt-4">
+                  {expandedExperience === index ? (
+                    <div className="relative">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="absolute -top-2 -right-2 p-1 h-6 w-6"
+                        onClick={() => setExpandedExperience(null)}
+                      >
+                        <X className="w-4 h-4" />
+                      </Button>
+                      <div className="space-y-2">
+                        {formatDescriptionBullets(exp.description).map((bullet, idx) => (
+                          <div key={idx} className="flex items-start gap-2">
+                            <span className="text-primary mt-1.5 text-xs">•</span>
+                            <p className="text-accent/80 text-sm leading-relaxed">{bullet}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="cursor-pointer" onClick={() => setExpandedExperience(index)}>
+                      <div className="flex items-start gap-2">
+                        <span className="text-primary mt-1.5 text-xs">•</span>
+                        <p className="text-accent/80 text-sm leading-relaxed line-clamp-2">
+                          {formatDescriptionBullets(exp.description)[0]}
+                        </p>
+                      </div>
+                      {formatDescriptionBullets(exp.description).length > 1 && (
+                        <div className="flex items-center gap-1 mt-2 text-primary hover:text-primary/80 transition-colors">
+                          <span className="text-xs">Show more</span>
+                          <ChevronDown className="w-3 h-3" />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>

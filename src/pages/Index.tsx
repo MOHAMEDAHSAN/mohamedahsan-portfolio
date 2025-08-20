@@ -22,6 +22,7 @@ const experiences = [
     description:
       "Hosted events on Kivy app development in Python. Being a part of the central team of the student-driven club, TechSociety. Managing 5 different communities with 300+ active members.",
     side: "left" as const,
+    logo: "/lovable-uploads/229f5310-104c-4224-8a06-8946acb12a00.png"
   },
   {
     title: "AI Product Developer Intern",
@@ -31,6 +32,7 @@ const experiences = [
     description:
       "Our team operated under the Agile Scrum methodology, conducting daily stand-up meetings (DSMs) for progress updates and Weekly Sprint reviews through structured presentations. I contributed to the end-to-end development of AI-driven product 'DewDrop' using the MERN stack (MongoDB, Express.js, React with Vite, Node.js). I collaborated closely with teams, leveraging project management tools like Jira and Confluence (Atlassian.net) for agile workflow tracking and documentation. I worked on UI/UX prototyping using Figma, created visual presentations with Canva, and integrated LangChain for building AI-powered features within the product.",
     side: "right" as const,
+    logo: "/lovable-uploads/64873ecc-d2a0-4b41-bae4-06d788a0657b.png"
   },
   {
     title: "Mentee",
