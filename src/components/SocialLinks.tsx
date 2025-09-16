@@ -53,7 +53,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     icon: FileText,
-    href: "/MOHAMED AHSAN RESUME.pdf",
+    href: "/Mohamed Ahsan Resume.pdf",
     label: "Resume",
     tooltip: "View my resume 📄",
     defaultColor: "text-[#34A853]",
@@ -72,7 +72,7 @@ const SocialLinks = ({ onContactClick }: SocialLinksProps) => {
           key={link.label}
           href={link.href}
           title={link.tooltip}
-          download={link.label === "Resume" ? "MOHAMED AHSAN RESUME.pdf" : undefined}
+          download={link.label === "Resume" ? "Mohamed Ahsan Resume.pdf" : undefined}
           target={link.label === "Resume" ? "_blank" : undefined}
           rel={link.label === "Resume" ? "noopener noreferrer" : undefined}
           className="group relative p-3 bg-white hover:bg-primary rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-scale-up"
