@@ -1,4 +1,3 @@
-
 import {
   Brain,
   MessageSquare,
@@ -65,7 +64,7 @@ const technicalSkills = [
 ];
 
 const SkillCard = ({ name, icon: Icon, details }: { name: string; icon: any; details?: string }) => (
-  <div className="flex items-center gap-3 p-3 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:bg-primary hover:text-white group">
+  <div className="flex items-center gap-3 p-3 bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/10 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:bg-primary hover:text-white group">
     {typeof Icon === 'string' ? (
       <img src={Icon} alt={name} className="w-5 h-5" />
     ) : (
@@ -126,14 +125,14 @@ const Skills: React.FC<SkillsProps> = ({ isAdmin }) => {
                 placeholder="Search skills..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 w-full border-primary focus:ring-primary/20"
+                className="pl-10 w-full border-primary focus:ring-primary/20 bg-white/20 dark:bg-black/20 backdrop-blur-xl border-white/10"
               />
             </div>
             <Select value={sortOrder} onValueChange={(value) => setSortOrder(value as SortOrder)}>
               <SelectTrigger className="w-[150px] bg-primary text-white border-primary hover:bg-primary/90 transition-colors">
                 <SelectValue placeholder="Sort order" />
               </SelectTrigger>
-              <SelectContent className="bg-white border-primary">
+              <SelectContent className="bg-white/20 dark:bg-black/20 backdrop-blur-xl border-white/10">
                 <SelectItem value="default">Default</SelectItem>
                 <SelectItem value="asc">A to Z</SelectItem>
                 <SelectItem value="desc">Z to A</SelectItem>

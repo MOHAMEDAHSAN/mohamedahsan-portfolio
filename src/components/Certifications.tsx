@@ -66,7 +66,7 @@ const certifications = [
 const CertificationCard = ({ certification, onClick }: { certification: typeof certifications[0], onClick: () => void }) => (
   <div 
     onClick={onClick}
-    className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
+    className="bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/10 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group hover:bg-white/30 dark:hover:bg-black/30"
   >
     <div className="p-6 space-y-4">
       <div className="flex items-center gap-3">

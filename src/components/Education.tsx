@@ -38,7 +38,7 @@ const Education: React.FC<EducationProps> = ({ isAdmin }) => {
         {educationData.map((edu, index) => (
           <div 
             key={index}
-            className="bg-secondary/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-primary/5 hover:border-primary/10 transition-colors max-w-3xl mx-auto"
+            className="bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/10 p-6 rounded-xl shadow-lg hover:border-primary/20 transition-colors max-w-3xl mx-auto"
           >
             <div className="flex items-center gap-6">
               <img 

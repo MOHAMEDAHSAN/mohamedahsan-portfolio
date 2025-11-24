@@ -1,4 +1,3 @@
-
 import { Pencil, Plus, Trash, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
@@ -8,7 +7,7 @@ import { useToast } from "./ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
 interface Experience {
-  id?: string;  // Added id property
+  id?: string;
   title: string;
   company: string;
   duration: string;
@@ -68,7 +67,6 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
     
     try {
       if (editingExperience) {
-        // Update existing experience
         const { error } = await supabase
           .from('experiences')
           .update(formData)
@@ -81,7 +79,6 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
           description: "Experience updated successfully",
         });
       } else {
-        // Add new experience
         const { error } = await supabase
           .from('experiences')
           .insert(formData);
@@ -139,7 +136,8 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
                 exp.side === "right" ? "md:col-start-2" : "md:col-start-1"
               }`}
             >
-              <div className="bg-secondary/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-primary/5 hover:border-primary/10 transition-colors">
+              {/* iOS-style glass effect: Reduced opacity to 20% and subtle border */}
+              <div className="bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/10 p-6 rounded-xl shadow-lg hover:border-primary/20 transition-colors">
                 <div className="flex items-center gap-4 mb-4">
                   {exp.logo && (
                     <img 
@@ -196,7 +194,6 @@ const ExperienceTimeline = ({ experiences, isAdmin }: ExperienceTimelineProps) =
                   <p className="text-sm text-primary/80">{exp.duration}</p>
                 </div>
                 
-                {/* Description with expandable functionality */}
                 <div className="mt-4">
                   {expandedExperience === index ? (
                     <div className="relative cursor-pointer" onClick={() => setExpandedExperience(null)}>
