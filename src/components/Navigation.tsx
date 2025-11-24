@@ -1,8 +1,6 @@
-
 import { useState, useEffect } from "react";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
@@ -54,119 +52,70 @@ const Navigation = ({ onNavigate }: NavigationProps) => {
     }
   };
 
+  const navItems = [
+    { id: "home", label: "Home" },
+    { id: "experience", label: "Experience" },
+    { id: "education", label: "Education" },
+    { id: "hackathons", label: "Hackathons" },
+    { id: "certifications", label: "Certifications" },
+    { id: "skills", label: "Skills" },
+  ];
+
   return (
-    <nav 
-      className="fixed top-0 left-0 right-0 z-50 bg-secondary/80 backdrop-blur-sm border-b border-primary/10 px-6 py-3 font-poppins"
-      style={{
-        backgroundImage: `
-          linear-gradient(
-            to right,
-            rgba(250, 250, 250, 0.8),
-            rgba(250, 250, 250, 0.8)
-          ),
-          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M0 45 C15 35, 35 55, 50 45 S85 35, 100 45' fill='none' stroke='%23ea384c' stroke-width='4' stroke-opacity='0.4'%3E%3Canimate attributeName='d' dur='4s' repeatCount='indefinite' values='M0 45 C15 35, 35 55, 50 45 S85 35, 100 45;M0 45 C15 40, 35 50, 50 45 S85 40, 100 45;M0 45 C15 35, 35 55, 50 45 S85 35, 100 45'/%3E%3C/path%3E%3Cpath d='M0 55 C15 45, 35 65, 50 55 S85 45, 100 55' fill='none' stroke='%23ea384c' stroke-width='4' stroke-opacity='0.3'%3E%3Canimate attributeName='d' dur='4s' repeatCount='indefinite' values='M0 55 C15 45, 35 65, 50 55 S85 45, 100 55;M0 55 C15 50, 35 60, 50 55 S85 50, 100 55;M0 55 C15 45, 35 65, 50 55 S85 45, 100 55' /%3E%3C/path%3E%3Cpath d='M0 65 C15 55, 35 75, 50 65 S85 55, 100 65' fill='none' stroke='%23ea384c' stroke-width='4' stroke-opacity='0.2'%3E%3Canimate attributeName='d' dur='4s' repeatCount='indefinite' values='M0 65 C15 55, 35 75, 50 65 S85 55, 100 65;M0 65 C15 60, 35 70, 50 65 S85 60, 100 65;M0 65 C15 55, 35 75, 50 65 S85 55, 100 65' /%3E%3C/path%3E%3C/svg%3E")
-        `,
-        backgroundSize: "400px auto",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="flex items-center justify-between max-w-7xl mx-auto">
-        <NavigationMenu className="mx-auto">
-          <NavigationMenuList className="gap-6">
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  "text-accent hover:text-primary hover:bg-primary/10 transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-1 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
-                )}
-                onClick={() => onNavigate("home")}
-              >
-                Home
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  "text-accent hover:text-primary hover:bg-primary/10 transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-1 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
-                )}
-                onClick={() => onNavigate("experience")}
-              >
-                Experience
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  "text-accent hover:text-primary hover:bg-primary/10 transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-1 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
-                )}
-                onClick={() => onNavigate("education")}
-              >
-                Education
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  "text-accent hover:text-primary hover:bg-primary/10 transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-1 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
-                )}
-                onClick={() => onNavigate("hackathons")}
-              >
-                Hackathons & Projects
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  "text-accent hover:text-primary hover:bg-primary/10 transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-1 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
-                )}
-                onClick={() => onNavigate("certifications")}
-              >
-                Certifications
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  "text-accent hover:text-primary hover:bg-primary/10 transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-1 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
-                )}
-                onClick={() => onNavigate("skills")}
-              >
-                Skills
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+    // Container floats and allows clicks to pass through on the sides
+    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none font-poppins">
+      <nav 
+        className="pointer-events-auto flex items-center gap-1 p-1.5 bg-white/60 dark:bg-black/60 backdrop-blur-xl border border-white/20 shadow-lg rounded-full transition-all duration-300 hover:shadow-xl hover:bg-white/70 dark:hover:bg-black/70 supports-[backdrop-filter]:bg-white/30 supports-[backdrop-filter]:dark:bg-black/30"
+      >
+        <NavigationMenu>
+          <NavigationMenuList className="gap-1">
+            {navItems.map((item) => (
+              <NavigationMenuItem key={item.id}>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent h-9 px-4 rounded-full text-sm font-medium text-foreground/80 transition-all duration-300 cursor-pointer hover:bg-primary/10 hover:text-primary active:scale-95 data-[active]:bg-white data-[active]:text-black data-[active]:shadow-sm dark:data-[active]:bg-white/10 dark:data-[active]:text-white"
+                  )}
+                  onClick={() => onNavigate(item.id)}
+                >
+                  {item.label}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="absolute right-6">
+        {/* Divider */}
+        <div className="h-5 w-px bg-foreground/10 mx-2" />
+
+        {/* Auth Button */}
+        <div>
           {user ? (
             <Button
               variant="ghost"
               size="icon"
               onClick={handleLogout}
-              className="w-9 h-9 text-primary hover:text-primary hover:bg-primary/10"
+              className="w-9 h-9 rounded-full text-foreground/80 hover:bg-primary/10 hover:text-primary transition-all duration-300 active:scale-95"
+              title="Logout"
             >
-              <LogOut className="w-5 h-5" />
+              <LogOut className="w-4 h-4" />
             </Button>
           ) : (
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsAuthOpen(true)}
-              className="w-9 h-9 text-primary hover:text-primary hover:bg-primary/10"
+              className="w-9 h-9 rounded-full text-foreground/80 hover:bg-primary/10 hover:text-primary transition-all duration-300 active:scale-95"
+              title="Admin Login"
             >
-              <UserCircle2 className="w-5 h-5" />
+              <UserCircle2 className="w-4 h-4" />
             </Button>
           )}
         </div>
-      </div>
+      </nav>
 
       <AdminAuth isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
-    </nav>
+    </div>
   );
 };
 

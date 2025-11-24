@@ -48,7 +48,6 @@ const technicalSkills = [
   { name: "React + Vite", icon: "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" },
   { name: "Node.js", icon: "https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" },
   { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
-  { name: "PHP", icon: "https://www.vectorlogo.zone/logos/php/php-icon.svg" },
   { name: "Java", icon: "https://www.vectorlogo.zone/logos/java/java-icon.svg" },
   { name: "JavaScript (JSX)", icon: "https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" },
   { name: "C", icon: FileCode },
@@ -62,10 +61,7 @@ const technicalSkills = [
   { name: "Confluence", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg" },
   { name: "Git", icon: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" },
   { name: "Postman", icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
-  { name: "Visual Studio Code", icon: "https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" },
-  { name: "Quartus", icon: Cpu },
-  { name: "Autodesk Fusion 360", icon: Box },
-  { name: "Ultimaker Cura", icon: Printer },
+  { name: "Visual Studio Code", icon: "https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" }
 ];
 
 const SkillCard = ({ name, icon: Icon, details }: { name: string; icon: any; details?: string }) => (
